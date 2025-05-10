@@ -317,20 +317,14 @@ export default function Home() {
               {!webcamActive && (
                 <div className="text-gray-400">Camera will appear here</div>
               )}
-              {/* Guide message overlay */}
-              {webcamActive && guideMsg && (
-                <div className="absolute bottom-2 left-2 right-2 bg-black bg-opacity-50 text-white text-xs p-1 rounded">
-                  {guideMsg}
-                </div>
-              )}
-              {/* Progress overlay */}
-              {capturing && (
-                <div className="absolute top-2 left-2 right-2 bg-black bg-opacity-50 text-white text-xs p-1 rounded">
-                  Capturing sample {samples.length}/{NUM_SAMPLES} (
-                  {Math.round(captureProgress)}%)
-                </div>
-              )}
             </div>
+
+            {/* Guide message moved below video */}
+            {webcamActive && guideMsg && (
+              <div className="mb-4 text-center text-base font-medium text-blue-700">
+                {guideMsg}
+              </div>
+            )}
 
             {/* Match confidence display */}
             {matchConfidence !== null && (
